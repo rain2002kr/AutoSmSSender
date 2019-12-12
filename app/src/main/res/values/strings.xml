@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ATSmSapp</string>
+    <string name="frag_main_id">메인 화면</string>
+    <string name="frag_sub1_id">수신/발신 등록 리스트 만들기</string>
+    <string name="frag_sub2_id">자동 응답 기능</string>
+    <string name="frag_sub3_id">자동 응답 내역</string>
+    <string name="frag_sub4_id">단체 문자 전송</string>
+</resources>

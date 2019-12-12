@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+  >
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/frag_main_id"
+        android:textSize="@dimen/text_title_size"
+        android:gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:text="서비스시작"
+            android:textSize="@dimen/btn_text_size"
+            />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_weight="1"
+            android:text="서비스 정지"
+            android:textSize="@dimen/btn_text_size"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="@dimen/btn_width_max"
+        android:layout_height="@dimen/btn_height"
+        android:text="@string/frag_sub1_id"
+        android:textSize="@dimen/btn_text_size"
+        />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="@dimen/btn_width_max"
+        android:layout_height="@dimen/btn_height"
+        android:text="@string/frag_sub2_id"
+        android:textSize="@dimen/btn_text_size"
+        />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="@dimen/btn_width_max"
+        android:layout_height="@dimen/btn_height"
+        android:text="@string/frag_sub3_id"
+        android:textSize="@dimen/btn_text_size"
+        />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="@dimen/btn_width_max"
+        android:layout_height="@dimen/btn_height"
+        android:text="@string/frag_sub4_id"
+        android:textSize="@dimen/btn_text_size"
+        />
+
+
+
+
+</LinearLayout>
