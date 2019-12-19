@@ -16,9 +16,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button serviceStartBtn,serviceStopBtn;
     Button homebtn,sub1btn,sub2btn,sub3btn,sub4btn;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate( R.menu.main_menu, menu );
         return true;
     }
@@ -28,16 +28,14 @@ public class MainActivity extends AppCompatActivity {
         int curId = item.getItemId();
         switch (curId){
             case R.id.refresh:
-                Toast.makeText( getApplicationContext(), "새로고침 메뉴 선택됨",Toast.LENGTH_LONG ).show();
-
+                printToast("새로고침 메뉴 선택됨");
                 break;
             case R.id.home:
-                Toast.makeText( getApplicationContext(), "홈 메뉴 선택됨",Toast.LENGTH_LONG ).show();
-
+                printToast("홈 메뉴 선택됨");
+                screenchange(MainActivity.class, 100);
                 break;
             case R.id.serch:
-                Toast.makeText( getApplicationContext(), "검색 메뉴 선택됨",Toast.LENGTH_LONG ).show();
-
+                printToast("검색 메뉴 선택됨");
                 break;
             default:
                 break;
@@ -50,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
         userScrChange();
-
-
     }
 
     public void userScrChange(){
@@ -63,17 +59,42 @@ public class MainActivity extends AppCompatActivity {
         sub3btn = (Button) findViewById( R.id.button5 );
         sub4btn = (Button) findViewById( R.id.button6 );
 
-        sub1btn.setOnClickListener( new View.OnClickListener() {
+        sub1btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //Intent intent = new Intent( getApplicationContext() , R.layout.activity_sub1.class );
-
+            public void onClick(View view) {
+                screenchange(Sub1Activity.class, 101);
             }
-        } );
+        });
+        sub2btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenchange(Sub2Activity.class, 102);
+            }
+        });
+        sub3btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenchange(Sub3Activity.class, 103);
+            }
+        });
+        sub4btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                screenchange(Sub4Activity.class, 104);
+            }
+        });
 
 
+    }
 
-
+    //TODO UserAPI Blocks
+    public void screenchange(Class cls,int requestCode){
+        Intent intent = new Intent(getApplicationContext(),cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivityForResult(intent,requestCode);
+    }
+    public void printToast(String data){
+        Toast.makeText(getApplicationContext(),data, Toast.LENGTH_LONG).show();
     }
 
 }

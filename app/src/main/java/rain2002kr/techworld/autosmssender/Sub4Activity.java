@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class Sub3Activity extends AppCompatActivity {
+public class Sub4Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate( R.menu.main_menu, menu );
@@ -37,8 +37,8 @@ public class Sub3Activity extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_sub3 );
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub4);
     }
 
     //TODO UserAPI Blocks

@@ -19,7 +19,7 @@ import org.w3c.dom.Text;
 import rain2002kr.techworld.autosmssender.R;
 
 public class TelItemView extends LinearLayout {
-    EditText editText,editText2;
+    EditText edName,edPhone;
     ImageView imageView;
 
     public TelItemView(Context context) {
@@ -34,17 +34,17 @@ public class TelItemView extends LinearLayout {
     private void init (Context context){
         LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         View view =(View) inflater.inflate( R.layout.tellist, this, true );
-        editText = (EditText) view.findViewById( R.id.editText );
-        editText2 = (EditText) view.findViewById( R.id.editText2 );
+        edName = (EditText) view.findViewById( R.id.edName );
+        edPhone = (EditText) view.findViewById( R.id.edPhone );
         imageView = (ImageView) view.findViewById( R.id.imageView );
 
     }
 
     public void setName(String name) {
-        editText.setText( name );
+        edName.setText( name );
     }
     public void setPhone(String phone) {
-        editText.setText( phone );
+        edPhone.setText( phone );
     }
     public void setImageView(int resId) {
         imageView.setImageResource( resId );

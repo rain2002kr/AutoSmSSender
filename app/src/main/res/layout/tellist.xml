@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -27,7 +27,7 @@
             />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edPhone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
