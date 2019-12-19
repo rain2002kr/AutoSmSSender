@@ -77,7 +77,7 @@ public class Sub1Activity extends AppCompatActivity {
         //gson = new Gson();
         //json = gson.toJson(itemss);
         //preEditor.putString("json",json);
-
+    //
         preEditor.apply();
     }
 
