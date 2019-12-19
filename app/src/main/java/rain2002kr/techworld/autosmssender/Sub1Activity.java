@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,7 +20,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +35,12 @@ public class Sub1Activity extends AppCompatActivity {
     EditText edName, edPhone;
     RecyclerView recyclerView;
     recyclerAdpter adpter;
+    SharedPreferences pref;
+    SharedPreferences.Editor preEditor;
+    Gson gson;
+    String json;
+    ArrayList<TelItem> itemss;
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate( R.menu.main_menu, menu );
@@ -56,12 +67,38 @@ public class Sub1Activity extends AppCompatActivity {
 
         return super.onOptionsItemSelected( item );
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        preEditor.putString("name", edName.getText().toString());
+        preEditor.putString("phone", edPhone.getText().toString());
+
+        //gson = new Gson();
+        //json = gson.toJson(itemss);
+        //preEditor.putString("json",json);
+
+        preEditor.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        edName.setText(pref.getString("name",edName.getText().toString()));
+        edPhone.setText(pref.getString("phone",edPhone.getText().toString()));
+        //String jsons = pref.getString("json","");
+        //Type type = new TypeToken<ArrayList<TelItem>>(){}.getType();
+        //itemss = gson.fromJson(jsons , type);
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_sub1 );
         UserFindViewById();
         UserFunction();
+        itemss = new ArrayList<TelItem>();
     }
 
     //TODO UserFindViewById
@@ -73,6 +110,8 @@ public class Sub1Activity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adpter = new recyclerAdpter();
         recyclerView.setAdapter(adpter);
+        pref = getSharedPreferences("pref", MODE_PRIVATE);
+        preEditor = pref.edit();
 
     }
     //TODO UserFunction
@@ -84,6 +123,7 @@ public class Sub1Activity extends AppCompatActivity {
                 String name = edName.getText().toString();
                 String phone = edPhone.getText().toString();
                 adpter.addItem(new TelItem(R.drawable.star, name, phone));
+                itemss.add(new TelItem(R.drawable.star, name, phone));
                 adpter.notifyDataSetChanged();
             }
         });
@@ -103,6 +143,7 @@ public class Sub1Activity extends AppCompatActivity {
         public void addItem(TelItem item){
             items.add(item);
         }
+
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             EditText edName, edPhone;
@@ -150,4 +191,5 @@ public class Sub1Activity extends AppCompatActivity {
     public void printToast(String data){
         Toast.makeText(getApplicationContext(),data, Toast.LENGTH_LONG).show();
     }
+
 }
