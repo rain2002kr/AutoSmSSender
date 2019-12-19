@@ -124,7 +124,7 @@ public class Sub1Activity extends AppCompatActivity {
             View view = (View) inflater.inflate(R.layout.tellist, parent,false);
             recyclerAdpter.ViewHolder vh = new recyclerAdpter.ViewHolder(view);
 
-            return vh;
+            return vh; //test
         }
 
         @Override
