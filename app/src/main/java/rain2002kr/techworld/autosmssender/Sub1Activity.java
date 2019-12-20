@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,7 +40,7 @@ public class Sub1Activity extends AppCompatActivity {
     SharedPreferences.Editor preEditor;
     Gson gson;
     String json;
-    ArrayList<TelItem> itemss;
+    ArrayList<TelItem> itemss = new ArrayList<TelItem>();
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -55,7 +56,7 @@ public class Sub1Activity extends AppCompatActivity {
                 printToast("새로고침 메뉴 선택됨");
                 break;
             case R.id.home:
-                printToast("홈 메뉴 선택됨");
+               // printToast("홈 메뉴 선택됨");
                 screenchange(MainActivity.class, 100);
                 break;
             case R.id.serch:
@@ -71,13 +72,10 @@ public class Sub1Activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        printToast("onPause 호출됨");
+
         preEditor.putString("name", edName.getText().toString());
         preEditor.putString("phone", edPhone.getText().toString());
-
-        //gson = new Gson();
-        //json = gson.toJson(itemss);
-        //preEditor.putString("json",json);
-    //
         preEditor.apply();
     }
 
@@ -86,10 +84,6 @@ public class Sub1Activity extends AppCompatActivity {
         super.onResume();
         edName.setText(pref.getString("name",edName.getText().toString()));
         edPhone.setText(pref.getString("phone",edPhone.getText().toString()));
-        //String jsons = pref.getString("json","");
-        //Type type = new TypeToken<ArrayList<TelItem>>(){}.getType();
-        //itemss = gson.fromJson(jsons , type);
-
     }
 
     @Override
@@ -98,7 +92,7 @@ public class Sub1Activity extends AppCompatActivity {
         setContentView( R.layout.activity_sub1 );
         UserFindViewById();
         UserFunction();
-        itemss = new ArrayList<TelItem>();
+
     }
 
     //TODO UserFindViewById

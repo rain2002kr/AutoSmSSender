@@ -11,6 +11,9 @@ public class TelItem implements Parcelable {
         this.name = name;
         this.phone = phone;
     }
+    public TelItem(){
+        ;
+    }
 
     public int getResId() {
         return ResId;
