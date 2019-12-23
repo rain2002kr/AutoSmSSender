@@ -67,7 +67,7 @@ public class Sub1Activity extends AppCompatActivity {
                 printToast("새로고침 메뉴 선택됨");
                 break;
             case R.id.home:
-               // printToast("홈 메뉴 선택됨");
+               // printToast("홈 메뉴 선택됨"); //
                 screenchange(MainActivity.class, 100);
                 break;
             case R.id.serch:
