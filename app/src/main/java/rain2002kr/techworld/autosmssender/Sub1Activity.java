@@ -27,8 +27,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
@@ -44,7 +42,7 @@ public class Sub1Activity extends AppCompatActivity {
     recyclerAdpter adpter;
     SharedPreferences pref;
     SharedPreferences.Editor preEditor;
-    Gson gson; String json;
+
     ArrayList<TelItem> itemss = new ArrayList<TelItem>();
     SQLiteDatabase database;
     String dbName = "custom";
@@ -110,7 +108,6 @@ public class Sub1Activity extends AppCompatActivity {
         createOrOpenDataBase(dbName);
 
         createTable(tableName);
-
 
     }
 
